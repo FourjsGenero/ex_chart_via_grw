@@ -5,6 +5,8 @@ Example demonstrating how you can incorporate Charts/Graphs etc in your Genero a
 
 The basics of the technique is that uses Genero Report Writer to create a chart with the data that is sent to it.  The output format selected is Image, and then this image is displayed to an image widget in your Genero application.
 
+I have only done a small selection of the report options, you would add other options in a similar manner through FIRST PAGE HEADER.
+
 The advantages of this method is that it does not require the use of a 3rd party graph/chart web component, nor does it require you using fglsvgcanvas to produce something from scratch.  You also get consistency of appearance between your generated reports and what appears in the screen.
 
 The disadvantages are that you are limited to the charting options that are availabel from within Genero Report Writer.
