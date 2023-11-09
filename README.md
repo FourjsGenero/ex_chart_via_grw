@@ -3,11 +3,13 @@ Charts via Genero Report Writer
 
 Example demonstrating how you can incorporate Charts/Graphs etc in your Genero applicaiton via Genero Report Writer.
 
-Thhe advantages of this method is that it does not require the use of a 3rd party graph/chart web component, nor does it require you using fglsvgcanvas to produce something from scratch.  
+The basics of the technique is that uses Genero Report Writer to create a chart with the data that is sent to it.  The output format selected is Image, and then this image is displayed to an image widget in your Genero application.
+
+The advantages of this method is that it does not require the use of a 3rd party graph/chart web component, nor does it require you using fglsvgcanvas to produce something from scratch.  You also get consistency of appearance between your generated reports and what appears in the screen.
 
 The disadvantages are that you are limited to the charting options that are availabel from within Genero Report Writer.
 There is limited ability to make your charts interactive.
-For performance reasons, you might wish to investigate the use of "distributed mode" within GRW so that the initialisation of the reporting libraries is not called for each individual chart.
+For performance reasons, you might wish to investigate the use of "distributed mode" within GRW so that the initialisation of the reporting libraries is not called for each individual chart.  Without using distributed mode you will probably find that each chart takes a second or three to be produced.
 
 The screenshots below show the 5 chart types that are available using a MapChart.
 
