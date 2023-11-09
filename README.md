@@ -5,13 +5,27 @@ Example demonstrating how you can incorporate Charts/Graphs etc in your Genero a
 
 The basics of the technique is that Genero Report Writer is used to create a chart from the data that is sent to it.  The output format selected is "Image", and then this image is displayed to an Image widget in your Genero application.
 
-In the example, I have only done a small selection of the report options available, you would add other options in a similar manner through FIRST PAGE HEADER.
+In the example, I have only done a small selection of the report options available.
 
-The advantages of this method is that it does not require the use of a 3rd party graph/chart web component, nor does it require you using fglsvgcanvas to produce something from scratch.  You also get consistency of appearance between your generated reports and what appears in your Genero application screens.
+The code is ...
+```
+LET filename = ex_chart_from_grw.generate(rec, arr)
+```
+...
+to produce an image with a temporary file name which is then displayed to an IMAGE widget
+
+The first argument is a record containing a list of report options.
+The second argument is a dynamic array of keys and values.
+
+You would extend by adding other arguments to the first parameter for different report options you wanted to control programatically.  You could also extend the second argument to add additional details about each item such as color.
+
+The advantages of this method utilising Genero Report Writer is that it does not require the use of a 3rd party graph/chart web component, nor does it require you using fglsvgcanvas to produce something from scratch.  You also get consistency of appearance between your generated reports and what appears in your Genero application screens.
 
 The disadvantages are that you are limited to the charting options that are available from within Genero Report Writer.
 There is limited ability to make your charts interactive.
 For performance reasons, you might wish to investigate the use of "distributed mode" within GRW so that the initialisation of the reporting libraries is not called for each individual chart.  Without using distributed mode you will probably find that each chart takes a second or three to be produced, using distributed mode this becomes near instantaneous.
+
+When considering report options, you should compare this technique with using another Web Component provided by a 3rd party, and also by using the fglsvgcanvas Web Component to control all of the rendering.
 
 The screenshots below show the 5 chart types that are available using a MapChart.
 
