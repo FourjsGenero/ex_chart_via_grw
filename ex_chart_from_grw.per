@@ -1,0 +1,48 @@
+LAYOUT
+HBOX (SPLITTER)
+VBOX (SPLITTER)
+GROUP (TEXT="Format")
+GRID
+{
+Title          [f01                 ]
+Chart Type     [f02                 ]
+Key Title      [f03                 ]
+Values Title   [f04                 ]
+Draw Legend    [f05]
+Draw Labels    [f06]
+}
+END #GRID
+END #GROUP
+GROUP (TEXT="Data")
+TABLE
+{
+[c01      ][c02      ]
+}
+END # TABLE
+END #GROUP
+END # VBOX
+GROUP (TEXT="Chart")
+GRID
+{
+[i01]
+}
+END #GRID
+END #GROUP
+END #HBOX
+END #LAYOUT
+
+ATTRIBUTES
+EDIT f01 = formonly.chart_title, SCROLL;
+COMBOBOX f02 = formonly.chart_type, ITEMS=("Pie","Pie3D","Ring","Bar","Bar3D"), NOT NULL;
+EDIT f03 = formonly.key_title, SCROLL;
+EDIT f04 = formonly.value_title, SCROLL;
+CHECKBOX f05 = formonly.draw_legend, VALUECHECKED=TRUE, VALUEUNCHECKED=FALSE, NOT NULL;
+CHECKBOX f06 = formonly.draw_labels, VALUECHECKED=TRUE, VALUEUNCHECKED=FALSE, NOT NULL;
+
+EDIT c01 = formonly.key, TITLE="Key", STRETCH=X;
+EDIT c02 = formonly.value, TITLE="Value";
+
+IMAGE i01 = formonly.img, STRETCH=BOTH, AUTOSCALE;
+
+INSTRUCTIONS
+SCREEN RECORD scr(key, value)

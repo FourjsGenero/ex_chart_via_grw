@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report:Report xmlns:rtl="http://www.4js.com/2004/RTL" xmlns:report="http://www.4js.com/2007/REPORT" xmlns="http://www.4js.com/2004/PXML" gstVersion="40101" version="7.00">
+    <report:Settings RWPageWidth="a4width" RWPageLength="a4length" RWLeftMargin="1.3cm" RWTopMargin="1.3cm" RWRightMargin="1.3cm" RWBottomMargin="1.3cm">
+        <report:FormatList>
+            <report:Format-SVG/>
+            <report:Format-PDF/>
+            <report:Format-image/>
+        </report:FormatList>
+    </report:Settings>
+    <report:Data RWDataLocation="ex_chart_from_grw.rdd" RWFglReportName="simple_chart"/>
+    <report:Conflicts/>
+    <rtl:stylesheet>
+        <PXML>
+            <rtl:match name="Report" nameConstraint="Report" minOccurs="1" maxOccurs="1">
+                <MINIPAGE name="Page Root" width="max" length="max">
+                    <rtl:input-variable name="f.draw_labels" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                    <rtl:input-variable name="f.draw_legend" type="FGLNumeric" expectedLocation="expectedAhead"/>
+                    <rtl:input-variable name="f.key_title" type="FGLString" expectedLocation="expectedAhead"/>
+                    <rtl:input-variable name="f.chart_type" type="FGLString" expectedLocation="expectedAhead"/>
+                    <rtl:input-variable name="f.chart_title" type="FGLString" expectedLocation="expectedAhead"/>
+                    <rtl:input-variable name="f.value_title" type="FGLString" expectedLocation="expectedAhead"/>
+                    <MAPCHART name="Mapchart" width="max" length="max" floatingBehavior="enclosed" title="{{f.chart_title}}" keysTitle="{{f.key_title}}" valuesTitle="{{f.value_title}}" drawAs="{{f.chart_type==&quot;Pie&quot;?MapChartDrawAs.Pie:f.chart_type==&quot;Pie3D&quot;?MapChartDrawAs.Pie3D:f.chart_type==&quot;Bar&quot;?MapChartDrawAs.Bar:f.chart_type==&quot;Bar3D&quot;?MapChartDrawAs.Bar3D:f.chart_type==&quot;Ring&quot;?MapChartDrawAs.Ring:MapChartDrawAs.Bar}}" drawLegend="{{f.draw_legend==1?Boolean.TRUE:Boolean.FALSE}}" drawLabels="{{f.draw_labels==1?Boolean.TRUE:Boolean.FALSE}}">
+                        <rtl:match name="FirstPageHeader" nameConstraint="FirstPageHeader" minOccurs="0" maxOccurs="1"/>
+                        <rtl:match name="OnEveryRow" nameConstraint="OnEveryRow" minOccurs="0" maxOccurs="unbounded">
+                            <rtl:input-variable name="d.key" type="FGLString" expectedLocation="expectedHere"/>
+                            <rtl:input-variable name="d.value" type="FGLNumeric" expectedLocation="expectedHere"/>
+                            <ITEM key="{{d.key}}" value="{{d.value}}" name="Item33"/>
+                        </rtl:match>
+                    </MAPCHART>
+                </MINIPAGE>
+            </rtl:match>
+        </PXML>
+    </rtl:stylesheet>
+</report:Report>
